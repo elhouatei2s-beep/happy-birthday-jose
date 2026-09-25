@@ -1,0 +1,458 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    background: #0d0709;
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+}
+
+.hero {
+    min-height: 100vh;
+    min-height: 100svh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 50% 45%,
+            rgba(128, 35, 62, 0.42),
+            transparent 38%
+        ),
+        radial-gradient(
+            circle at 20% 80%,
+            rgba(179, 63, 91, 0.14),
+            transparent 32%
+        ),
+        radial-gradient(
+            circle at 85% 15%,
+            rgba(145, 38, 67, 0.12),
+            transparent 30%
+        ),
+        #0d0709;
+}
+
+/* soft glowing center */
+
+.hero::before {
+    content: "";
+
+    position: absolute;
+
+    width: 600px;
+    height: 600px;
+
+    border-radius: 50%;
+
+    background: rgba(137, 31, 61, 0.15);
+
+    filter: blur(100px);
+
+    animation: breathingGlow 6s ease-in-out infinite alternate;
+}
+
+/* subtle grain */
+
+.hero::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    opacity: 0.035;
+
+    background-image:
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.4'/%3E%3C/svg%3E");
+
+    pointer-events: none;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 5;
+
+    text-align: center;
+
+    width: min(900px, 90%);
+
+    padding: 40px 20px;
+
+    animation: appear 1.5s ease forwards;
+}
+
+/* tiny decorative line */
+
+.tiny-line {
+    width: 45px;
+    height: 1px;
+
+    margin: 0 auto 20px;
+
+    background: rgba(255, 190, 205, 0.55);
+}
+
+/* top text */
+
+.small-text {
+    font-size: 0.67rem;
+
+    letter-spacing: 0.34em;
+    text-transform: uppercase;
+
+    color: rgba(255, 210, 220, 0.68);
+
+    margin-bottom: 18px;
+}
+
+/* cute little note */
+
+.love-note {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: 1rem;
+
+    font-style: italic;
+
+    color: rgba(255, 220, 228, 0.68);
+
+    margin-bottom: 16px;
+}
+
+.love-note span {
+    font-family: 'Inter', sans-serif;
+
+    font-size: 0.75rem;
+
+    color: rgba(255, 145, 170, 0.75);
+}
+
+/* main title */
+
+h1 {
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: clamp(4.5rem, 11vw, 9rem);
+
+    font-weight: 500;
+
+    line-height: 0.78;
+
+    letter-spacing: -0.045em;
+
+    color: #fff7f8;
+
+    text-shadow:
+        0 0 35px rgba(255, 150, 175, 0.13);
+}
+
+h1 span:first-of-type {
+    background: linear-gradient(
+        120deg,
+        #fff8fa,
+        #ffd3dc,
+        #fff8fa
+    );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    color: transparent;
+}
+
+h1 .heart {
+    display: inline-block;
+
+    font-family: 'Inter', sans-serif;
+
+    font-size: 0.25em;
+
+    color: #e87898;
+
+    vertical-align: top;
+
+    margin-left: 8px;
+
+    animation: heartbeat 2s ease-in-out infinite;
+}
+
+/* subtitle */
+
+.subtitle {
+    margin-top: 32px;
+
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: 1.35rem;
+
+    line-height: 1.25;
+
+    font-style: italic;
+
+    color: rgba(255, 235, 240, 0.7);
+}
+
+/* distance */
+
+.distance {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 14px;
+
+    margin-top: 25px;
+
+    font-size: 0.58rem;
+
+    letter-spacing: 0.18em;
+
+    text-transform: uppercase;
+
+    color: rgba(255, 210, 220, 0.45);
+}
+
+.distance-line {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.dot {
+    width: 4px;
+    height: 4px;
+
+    border-radius: 50%;
+
+    background: rgba(255, 180, 200, 0.6);
+}
+
+.little-heart {
+    color: rgba(255, 130, 160, 0.9);
+
+    font-size: 0.9rem;
+
+    animation: heartbeat 2s ease-in-out infinite;
+}
+
+/* button */
+
+#startButton {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 12px;
+
+    margin-top: 38px;
+
+    padding: 15px 27px;
+
+    border: 1px solid rgba(255, 190, 205, 0.32);
+
+    border-radius: 100px;
+
+    background: rgba(255, 255, 255, 0.045);
+
+    color: #fff;
+
+    font-family: 'Inter', sans-serif;
+
+    font-size: 0.7rem;
+
+    letter-spacing: 0.12em;
+
+    cursor: pointer;
+
+    backdrop-filter: blur(12px);
+
+    box-shadow:
+        0 8px 35px rgba(0, 0, 0, 0.18);
+
+    transition:
+        transform 0.35s ease,
+        background 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+#startButton:hover {
+    transform: translateY(-4px) scale(1.02);
+
+    background: rgba(180, 55, 85, 0.16);
+
+    border-color: rgba(255, 190, 205, 0.65);
+
+    box-shadow:
+        0 12px 45px rgba(145, 30, 65, 0.25);
+}
+
+.button-heart {
+    font-size: 1rem;
+
+    color: #ef8da7;
+
+    transition: transform 0.3s ease;
+}
+
+#startButton:hover .button-heart {
+    transform: scale(1.3) rotate(-8deg);
+}
+
+/* bottom message */
+
+.bottom-note {
+    margin-top: 20px;
+
+    font-size: 0.6rem;
+
+    letter-spacing: 0.16em;
+
+    color: rgba(255, 220, 228, 0.3);
+}
+
+/* floating decorations */
+
+.floating-heart,
+.floating-star {
+    position: absolute;
+
+    z-index: 2;
+
+    pointer-events: none;
+
+    color: rgba(255, 155, 180, 0.4);
+
+    animation: floatAround 6s ease-in-out infinite;
+}
+
+.heart-1 {
+    left: 14%;
+    top: 28%;
+    font-size: 1.7rem;
+}
+
+.heart-2 {
+    right: 15%;
+    bottom: 27%;
+    font-size: 1.2rem;
+    animation-delay: 1.5s;
+}
+
+.heart-3 {
+    left: 22%;
+    bottom: 18%;
+    font-size: 0.8rem;
+    animation-delay: 3s;
+}
+
+.star-1 {
+    right: 22%;
+    top: 23%;
+    font-size: 1.2rem;
+    animation-delay: 2s;
+}
+
+.star-2 {
+    left: 17%;
+    top: 52%;
+    font-size: 0.8rem;
+    animation-delay: 4s;
+}
+
+/* animations */
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes breathingGlow {
+    from {
+        transform: scale(0.9);
+        opacity: 0.5;
+    }
+
+    to {
+        transform: scale(1.12);
+        opacity: 1;
+    }
+}
+
+@keyframes heartbeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.18);
+    }
+}
+
+@keyframes floatAround {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0.35;
+    }
+
+    50% {
+        transform: translateY(-12px) rotate(6deg);
+        opacity: 0.7;
+    }
+}
+
+/* mobile */
+
+@media (max-width: 600px) {
+
+    .hero-content {
+        padding: 30px 10px;
+    }
+
+    h1 {
+        font-size: 4.5rem;
+    }
+
+    .subtitle {
+        font-size: 1.15rem;
+    }
+
+    .distance {
+        gap: 9px;
+        font-size: 0.5rem;
+    }
+
+    .floating-heart,
+    .floating-star {
+        opacity: 0.6;
+    }
+}
